@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MySql_Lims"
+  DTS:DTSID="{1F7CDF7F-69FF-4381-A632-BED0FD4B6635}"
+  DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=192.168.10.6;user id=eddreports;database=lims;sslmode=None;connectiontimeout=2000;allowzerodatetime=True;keepalive=200;defaultcommandtimeout=2000;persistsecurityinfo=True;">
+      <DTS:Password
+        DTS:Name="password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZfDhiz3qtkmS47zhLE/CcgAAAAACAAAAAAAQZgAAAAEAACAAAAD3yuyLSqOOvtFL4RcVWiXSEyd8op/FDFKlZ2kh050RvgAAAAAOgAAAAAIAACAAAACObf1Sbn1IOuf8PBqPkaOO0i/uk1QdbdTy2EfDX7xam4AAAACfaGTO5Z50TQASQ0S1cDjbiDphnrGHpj4yCAN1Rc9EopwbR1yzJAy71/XLYEm7i8oZq8JsUcWfPYrPDiQx0kPovAAbL216EpnP2dWTnS7uv9LXDejHXHmr4E1v7/ewK4YA/3pk5Y3ThQXQ2UQH0FTRo/LnFzGJjDcHJLU6kZcABkAAAABSsY2tO8gxHfJq6D09q8lIrNxNLbGaCBsQBC/uH4Cyx2fHWhJTEYM+5M74oC+ZD8Xs1gjbwBmxHetgQuZLHRaQ</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

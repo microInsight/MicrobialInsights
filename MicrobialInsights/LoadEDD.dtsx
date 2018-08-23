@@ -1,0 +1,1458 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/6/2018 9:54:43 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-I84EPV7"
+  DTS:CreatorName="DESKTOP-I84EPV7\bob"
+  DTS:DTSID="{FF957CC3-26AC-4B9C-9B8A-30CEC68534B0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadEDD"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{A7F5D71D-2A73-4293-B6D1-EE3E8A6D07C3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.10.52.NGS Descriptions.bboyle]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{9BB8E32E-1B05-4486-97EA-AB9A2F2BD508}"
+      DTS:ObjectName="192.168.10.52.NGS Descriptions.bboyle">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=192.168.10.52;user id=bboyle;sslmode=None;database=NGS Descriptions;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZfDhiz3qtkmS47zhLE/CcgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD3rdgrNpoiowgZ2atEP3qtFsBDw/Z+D9fhiMX0h6Q4zAAAAAAOgAAAAAIAACAAAAATicWSu55gFctir/19YvCZDXiHG/rTM8748sLFDdQy5SAAAABSn2YcBH8xLdEXcTwAGz9Nlg4MlkKH7kort7V4QGsUMUAAAACDxb3V00hEFii3/9MwVoNdCBX0OT9dfkTh/viR1nDQ0XMreNFqZ5AR27dUiD06pqAb74J8XIxX6MRoCp1Hx7ML</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{8B0BB666-927F-4146-B0BF-49290533B7D0}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\bob\Documents\BCS\Microbial\Report Examples\OA 2017\082OA\082OA EDD.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Files]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{B96888F0-BC2F-4234-9388-33FBA9EAD87D}"
+      DTS:ObjectName="Excel Files">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Dsn=Excel Files;dbq=C:\Users\bob\Documents\BCS\Microbial\Report Examples\OA 2017\082OA\082OA EDD.xlsx;defaultdir=C:\Users\bob\Documents\BCS\Microbial\Report Examples\OA 2017\082OA;driverid=1046;maxbuffersize=2048;pagetimeout=5;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9A62DEB5-71A6-461F-B421-1706E7BFCFB6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName">
+      <DTS:VariableValue
+        DTS:DataType="8">082OA-EDD-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FE62F549-37FC-4A89-A1AC-C9A2F30D9821}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="WkBookName">
+      <DTS:VariableValue
+        DTS:DataType="8">082OA EDD.XLSX</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load EDD"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DA2029B9-6895-44DB-912A-298F3E314EEC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load EDD">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load EDD\ODBC Source"
+              componentClassID="Attunity.SSISODBCSrc"
+              contactInfo="ODBC Source;Connector for Open Database Connectivity (ODBC) by Attunity; Attunity Ltd.; All Rights Reserved; http://www.attunity.com;7"
+              description="ODBC Source"
+              name="ODBC Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName">`'082OA-EDD-1$'`</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand">SELECT [Lab Name] AS Component, CDate([Sample Name]) AS DateRecieved, [Sample Date] AS DateAnalyzed, CInt([Date Received])-1 AS arrivalTemp, [Sample Matrix] AS PositiveControl, [LIMS Identifier] AS ExtractionBlank, CInt([Extraction Date]) AS NegativeControl
+FROM [082OA-EDD-1$]
+WHERE ((([Lab Name])&lt;&gt;'MI' And ([Lab Name])&lt;&gt;'QA Data' And ([Lab Name])&lt;&gt;'Component'));</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod"
+                  typeConverter="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs"
+                  typeConverter="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs"
+                  typeConverter="BindCharColumnsAs">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load EDD\ODBC Source.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Files]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Files]"
+                  description="The ODBC runtime connection"
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[Component]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Component]"
+                      length="510"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[Component]"
+                      name="Component" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[DateRecieved]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[DateRecieved]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[DateRecieved]"
+                      name="DateRecieved" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[DateAnalyzed]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[DateAnalyzed]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[DateAnalyzed]"
+                      name="DateAnalyzed" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[arrivalTemp]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[arrivalTemp]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[arrivalTemp]"
+                      name="arrivalTemp" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[PositiveControl]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[PositiveControl]"
+                      length="510"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[PositiveControl]"
+                      name="PositiveControl" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[ExtractionBlank]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ExtractionBlank]"
+                      length="510"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[ExtractionBlank]"
+                      name="ExtractionBlank" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[NegativeControl]"
+                      dataType="i2"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[NegativeControl]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[NegativeControl]"
+                      name="NegativeControl" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Component]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Component" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[DateRecieved]"
+                      dataType="dbTimeStamp"
+                      name="DateRecieved" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[DateAnalyzed]"
+                      dataType="dbTimeStamp"
+                      name="DateAnalyzed" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[arrivalTemp]"
+                      dataType="i4"
+                      name="arrivalTemp" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[PositiveControl]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="PositiveControl" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ExtractionBlank]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="ExtractionBlank" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[NegativeControl]"
+                      dataType="i2"
+                      name="NegativeControl" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[Component]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Component]"
+                      length="510"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[Component]"
+                      name="Component" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[DateRecieved]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[DateRecieved]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[DateRecieved]"
+                      name="DateRecieved" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[DateAnalyzed]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[DateAnalyzed]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[DateAnalyzed]"
+                      name="DateAnalyzed" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[arrivalTemp]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[arrivalTemp]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[arrivalTemp]"
+                      name="arrivalTemp" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[PositiveControl]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[PositiveControl]"
+                      length="510"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[PositiveControl]"
+                      name="PositiveControl" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[ExtractionBlank]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[ExtractionBlank]"
+                      length="510"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[ExtractionBlank]"
+                      name="ExtractionBlank" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[NegativeControl]"
+                      dataType="i2"
+                      externalMetadataColumnId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[NegativeControl]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[NegativeControl]"
+                      name="NegativeControl" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load EDD\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EDD_QAData]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load EDD\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{D2BC7B75-E38E-4D51-980E-9310BB532568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MicrobialInsights]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Component]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="Component"
+                      externalMetadataColumnId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Component]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[Component]" />
+                    <inputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateRecieved]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateRecieved"
+                      externalMetadataColumnId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateRecieved]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[DateRecieved]" />
+                    <inputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[arrivalTemp]"
+                      cachedDataType="i4"
+                      cachedName="arrivalTemp"
+                      externalMetadataColumnId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ArrivalTemp]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[arrivalTemp]" />
+                    <inputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PositiveControl]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="PositiveControl"
+                      externalMetadataColumnId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PositiveControl]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[PositiveControl]" />
+                    <inputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExtractionBlank]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="ExtractionBlank"
+                      externalMetadataColumnId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtractionBlank]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[ExtractionBlank]" />
+                    <inputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NegativeControl]"
+                      cachedDataType="i2"
+                      cachedName="NegativeControl"
+                      externalMetadataColumnId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NegativeControl]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[NegativeControl]" />
+                    <inputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateAnalyzed]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateAnalyzed"
+                      externalMetadataColumnId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateAnalyzed]"
+                      lineageId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output].Columns[DateAnalyzed]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Component]"
+                      codePage="1252"
+                      dataType="str"
+                      length="750"
+                      name="Component" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateRecieved]"
+                      dataType="dbTimeStamp"
+                      name="DateRecieved" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ArrivalTemp]"
+                      dataType="i4"
+                      name="ArrivalTemp" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PositiveControl]"
+                      dataType="i4"
+                      name="PositiveControl" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtractionBlank]"
+                      dataType="i4"
+                      name="ExtractionBlank" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NegativeControl]"
+                      dataType="i4"
+                      name="NegativeControl" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EDD_QADataID]"
+                      dataType="i4"
+                      name="EDD_QADataID" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EDD_FileName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="EDD_FileName" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EDD_Sheet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EDD_Sheet" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateAnalyzed]"
+                      dataType="dbTimeStamp"
+                      name="DateAnalyzed" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load EDD\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load EDD\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load EDD\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load EDD\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load EDD.Paths[ODBC Source Output]"
+              endId="Package\Load EDD\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="ODBC Source Output"
+              startId="Package\Load EDD\ODBC Source.Outputs[ODBC Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load EDD Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DF9293BC-06D5-4173-AFC9-B26F589057D3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load EDD Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load EDD Data\ODBC Source"
+              componentClassID="Attunity.SSISODBCSrc"
+              contactInfo="ODBC Source;Connector for Open Database Connectivity (ODBC) by Attunity; Attunity Ltd.; All Rights Reserved; http://www.attunity.com;7"
+              description="ODBC Source"
+              name="ODBC Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName">`'082OA-EDD-1$'`</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand">SELECT [Lab Name], [Sample Name], [Sample Date], [Date Received], [Sample Matrix], [LIMS Identifier], [Extraction Date], [Analysis Date], [Analysis Method], Parameter, Result, [Result Qualifier], Units, [Detection Limit], [Report Limit]
+FROM [082OA-EDD-1$]
+where [Lab Name] = 'MI';</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod"
+                  typeConverter="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs"
+                  typeConverter="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs"
+                  typeConverter="BindCharColumnsAs">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load EDD Data\ODBC Source.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Files]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Files]"
+                  description="The ODBC runtime connection"
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Lab Name]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Lab Name]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Lab Name]"
+                      name="Lab Name" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Name]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Name]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Name]"
+                      name="Sample Name" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Date]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Date]"
+                      name="Sample Date" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Date Received]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Date Received]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Date Received]"
+                      name="Date Received" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Matrix]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Matrix]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Matrix]"
+                      name="Sample Matrix" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[LIMS Identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[LIMS Identifier]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[LIMS Identifier]"
+                      name="LIMS Identifier" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Extraction Date]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Extraction Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Extraction Date]"
+                      name="Extraction Date" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Analysis Date]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Analysis Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Analysis Date]"
+                      name="Analysis Date" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Analysis Method]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Analysis Method]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Analysis Method]"
+                      name="Analysis Method" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Parameter]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Parameter]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Parameter]"
+                      name="Parameter" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Result]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Result]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Result]"
+                      name="Result" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Result Qualifier]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Result Qualifier]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Result Qualifier]"
+                      name="Result Qualifier" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Units]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Units]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Units]"
+                      name="Units" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Detection Limit]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Detection Limit]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Detection Limit]"
+                      name="Detection Limit" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Report Limit]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Report Limit]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Report Limit]"
+                      name="Report Limit" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Lab Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Lab Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Sample Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Date]"
+                      dataType="dbTimeStamp"
+                      name="Sample Date" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Date Received]"
+                      dataType="dbTimeStamp"
+                      name="Date Received" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Matrix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Sample Matrix" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[LIMS Identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="LIMS Identifier" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Extraction Date]"
+                      dataType="dbTimeStamp"
+                      name="Extraction Date" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Analysis Date]"
+                      dataType="dbTimeStamp"
+                      name="Analysis Date" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Analysis Method]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Analysis Method" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Parameter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Parameter" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Result]"
+                      dataType="r8"
+                      name="Result" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Result Qualifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Result Qualifier" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Units]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Units" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Detection Limit]"
+                      dataType="r8"
+                      name="Detection Limit" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Report Limit]"
+                      dataType="r8"
+                      name="Report Limit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Lab Name]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Lab Name]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Lab Name]"
+                      name="Lab Name" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Sample Name]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Name]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Sample Name]"
+                      name="Sample Name" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Sample Date]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Sample Date]"
+                      name="Sample Date" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Date Received]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Date Received]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Date Received]"
+                      name="Date Received" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Sample Matrix]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Sample Matrix]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Sample Matrix]"
+                      name="Sample Matrix" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[LIMS Identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[LIMS Identifier]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[LIMS Identifier]"
+                      name="LIMS Identifier" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Extraction Date]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Extraction Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Extraction Date]"
+                      name="Extraction Date" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Analysis Date]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Analysis Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Analysis Date]"
+                      name="Analysis Date" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Analysis Method]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Analysis Method]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Analysis Method]"
+                      name="Analysis Method" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Parameter]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Parameter]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Parameter]"
+                      name="Parameter" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Result]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Result]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Result]"
+                      name="Result" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Result Qualifier]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Result Qualifier]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Result Qualifier]"
+                      name="Result Qualifier" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Units]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Units]"
+                      length="510"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Units]"
+                      name="Units" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Detection Limit]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Detection Limit]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Detection Limit]"
+                      name="Detection Limit" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Report Limit]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[Report Limit]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[Report Limit]"
+                      name="Report Limit" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load EDD Data\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EDD_Data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load EDD Data\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{D2BC7B75-E38E-4D51-980E-9310BB532568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MicrobialInsights]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Lab Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="Lab Name"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Lab Name]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Lab Name]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sample Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="Sample Name"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sample Name]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Name]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sample Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Sample Date"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sample Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Date]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date Received]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date Received"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date Received]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Date Received]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sample Matrix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="Sample Matrix"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sample Matrix]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Sample Matrix]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LIMS Identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="LIMS Identifier"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LIMS Identifier]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[LIMS Identifier]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Extraction Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Extraction Date"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Extraction Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Extraction Date]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Analysis Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Analysis Date"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Analysis Date]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Analysis Date]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Analysis Method]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="Analysis Method"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Analysis Method]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Analysis Method]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Parameter]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="Parameter"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Parameter]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Parameter]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Result]"
+                      cachedDataType="r8"
+                      cachedName="Result"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Result]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Result]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Result Qualifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="Result Qualifier"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Result Qualifier]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Result Qualifier]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Units]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="510"
+                      cachedName="Units"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Units]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Units]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Detection Limit]"
+                      cachedDataType="r8"
+                      cachedName="Detection Limit"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Detection Limit]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Detection Limit]" />
+                    <inputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Report Limit]"
+                      cachedDataType="r8"
+                      cachedName="Report Limit"
+                      externalMetadataColumnId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Report Limit]"
+                      lineageId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output].Columns[Report Limit]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EDD_DataID]"
+                      dataType="i4"
+                      name="EDD_DataID" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EDD_FileName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="EDD_FileName" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EDD_Sheet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EDD_Sheet" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Lab Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Lab Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sample Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Sample Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sample Date]"
+                      dataType="dbTimeStamp"
+                      name="Sample Date" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date Received]"
+                      dataType="dbTimeStamp"
+                      name="Date Received" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sample Matrix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Sample Matrix" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LIMS Identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="LIMS Identifier" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Extraction Date]"
+                      dataType="dbTimeStamp"
+                      name="Extraction Date" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Analysis Date]"
+                      dataType="dbTimeStamp"
+                      name="Analysis Date" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Analysis Method]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Analysis Method" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Parameter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Parameter" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Result]"
+                      dataType="r8"
+                      name="Result" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Result Qualifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Result Qualifier" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Units]"
+                      codePage="1252"
+                      dataType="str"
+                      length="510"
+                      name="Units" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Detection Limit]"
+                      dataType="r8"
+                      name="Detection Limit" />
+                    <externalMetadataColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Report Limit]"
+                      dataType="r8"
+                      name="Report Limit" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load EDD Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load EDD Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load EDD Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load EDD Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load EDD Data.Paths[ODBC Source Output]"
+              endId="Package\Load EDD Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="ODBC Source Output"
+              startId="Package\Load EDD Data\ODBC Source.Outputs[ODBC Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{13E5589F-46E6-4892-A99A-D9F7A9F35033}"
+      DTS:From="Package\Load EDD Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load EDD" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Load EDD"
+          TopLeft="142.5,284.5" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Load EDD Data"
+          TopLeft="124,89" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="202.25,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,153.5"
+              Start="0,0"
+              End="0,146">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,146" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load EDD">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Load EDD\ODBC Source"
+          TopLeft="201,78" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load EDD\OLE DB Destination"
+          TopLeft="219,262" />
+        <EdgeLayout
+          Id="Package\Load EDD.Paths[ODBC Source Output]"
+          TopLeft="272,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.5,142"
+              Start="0,0"
+              End="32.5,134.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,67"
+                    Point2="0,71"
+                    Point3="4,71" />
+                  <mssgle:LineSegment
+                    End="28.5,71" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.5,71"
+                    Point2="32.5,71"
+                    Point3="32.5,75" />
+                  <mssgle:LineSegment
+                    End="32.5,134.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load EDD\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load EDD\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load EDD Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load EDD Data\OLE DB Destination"
+          TopLeft="150,213" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Load EDD Data\ODBC Source"
+          TopLeft="146,77" />
+        <EdgeLayout
+          Id="Package\Load EDD Data.Paths[ODBC Source Output]"
+          TopLeft="217,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.5,94"
+              Start="0,0"
+              End="18.5,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="4,47" />
+                  <mssgle:LineSegment
+                    End="14.5,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.5,47"
+                    Point2="18.5,47"
+                    Point3="18.5,51" />
+                  <mssgle:LineSegment
+                    End="18.5,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load EDD Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

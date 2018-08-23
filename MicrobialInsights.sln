@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MicrobialInsights", "MicrobialInsights\MicrobialInsights.dtproj", "{0E131A5B-6B6D-43B0-93C7-95B05C349266}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E131A5B-6B6D-43B0-93C7-95B05C349266}.Development|Default.ActiveCfg = Development
+		{0E131A5B-6B6D-43B0-93C7-95B05C349266}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F12C073-EACE-4136-B73D-74DA62700E03}
+	EndGlobalSection
+EndGlobal

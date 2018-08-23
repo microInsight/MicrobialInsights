@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MicrobialInsights"
+  DTS:DTSID="{D2BC7B75-E38E-4D51-980E-9310BB532568}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DESKTOP-I84EPV7\SQL2017;Initial Catalog=MicrobialInsights;Provider=SQLNCLI11.1;Integrated Security=SSPI;Connect Timeout=0;General Timeout=0;Auto Translate=false;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

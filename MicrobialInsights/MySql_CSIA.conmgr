@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MySql_CSIA"
+  DTS:DTSID="{e2d5a80f-d162-4a86-9130-40ef467b57aa}"
+  DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=192.168.10.52;user id=bboyle;database=csia;sslmode=None;connectiontimeout=60000;allowzerodatetime=True;persistsecurityinfo=True;">
+      <DTS:Password
+        DTS:Name="password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZfDhiz3qtkmS47zhLE/CcgAAAAACAAAAAAAQZgAAAAEAACAAAADA1clg78jzbd+h6nKv4tAw+ZLrhHv/GA1ZQhWXy4eSgAAAAAAOgAAAAAIAACAAAABUkIYvHXWz2mRiL8vSsxlN+R1jKmiqYiyvIpP4kqTuC4AAAAAhi28+hT1yCzdd5Xd5ewgkA0hlY7t+T5HxiwIUOMlqZWo3+4GJPxeT9Fz8H97MlwvMUNyjugFajG2LIkfQdqsoiCi5E9BixP2o2rFbCgMc+7JAjsr3xmBdLLY0hY0WaWGmS5X6B4s20cQ/HWUHzf36g8qqckjD3GMvVwrRQdz+ZkAAAAD+nWmeDGHptOUoZITqowCuEvMg74i7zOpmT5BNriXqj8pMO2i/G7/VbK5WbJyGTlnz6KZs8VHs5VSJWggtiP6R</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
